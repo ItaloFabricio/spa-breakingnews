@@ -20,6 +20,11 @@ export const Container = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;
+  background-color: #fff;
+
+  img {
+    background-color: #fff;
+  }
 `;
 
 export const InputSpace = styled.div`

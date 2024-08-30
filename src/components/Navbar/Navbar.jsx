@@ -7,7 +7,7 @@ export function Navbar() {
     <>
       <Nav>
         <Container>
-            <img src={logo} alt="Logo Breaking News" />
+            <img  className='logo' src={logo} alt="Logo Breaking News" />
             <InputSpace>
                 <img src={search} alt="" />
                 <input type="text" 

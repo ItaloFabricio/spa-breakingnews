@@ -12,6 +12,7 @@ export const GlobalStyled = createGlobalStyle`
     text-decoration: none;
     list-style: none;
     font-family: "Lexend Deca", sans-serif;
+    
   }
 
   html {
@@ -21,6 +22,7 @@ export const GlobalStyled = createGlobalStyle`
   body {
     margin: 0;
     font-family: "Lexend Deca", sans-serif;
+    background-color: #F9F9F9;
   }
 
 `;
