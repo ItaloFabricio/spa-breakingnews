@@ -5,9 +5,9 @@ export const Nav = styled.nav`
   justify-content: space-between;
   align-items: center;
   width: 100%;
-  padding: 1rem;
+  padding: 1rem;/* 
   position: fixed;
-  top: 0;
+  top: 0; */
   background-color: #fff;
   z-index: 1;
   box-shadow: rgba(183, 185, 185, 0.2) 0px 2px 12px;
@@ -27,7 +27,6 @@ export const InputSpace = styled.div`
   width: 300px;
   display: flex;
   align-items: center;
-  margin-left: 1rem;
 
   img {
     position: absolute;
