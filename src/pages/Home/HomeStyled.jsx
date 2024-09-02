@@ -8,5 +8,16 @@ export const HomeBody = styled.section`
     align-items: center;
     margin: 1rem auto;
 
-    width: 1440px;
+    width: 100%;
+    max-width: 1440px;
+`;
+
+export const HomeHeader = styled.section`
+    display: grid;
+    grid-gap: 1rem;
+    align-items: center;
+    margin: 1rem auto;
+
+    width: 100%;
+    max-width: 1440px;
 `;
