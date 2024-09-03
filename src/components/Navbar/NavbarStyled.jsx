@@ -80,3 +80,13 @@ export const Button = styled.button`
     transform: scale(1.02);
   }
 `;
+
+export const ErrorSpan = styled.span`
+  background-color: #d40b0b;
+  color: #fff;
+  padding: 1rem;
+  display: flex;
+  justify-content: center;
+  font-size: 1.1rem;
+  font-weight: bold;
+`;

@@ -1,7 +1,7 @@
 import { Link, Outlet, useNavigate } from "react-router-dom";
 import logo from "../../images/LogoBN.png";
 import search from "../../images/search-icon.svg";
-import { Button, Container, InputSpace, Nav } from "./NavbarStyled";
+import { Button, Container, ErrorSpan, InputSpace, Nav } from "./NavbarStyled";
 import { useForm } from "react-hook-form";
 import { z } from "zod";
 import { zodResolver } from "@hookform/resolvers/zod";
@@ -29,20 +29,23 @@ export function Navbar() {
     <>
       <Nav>
         <Container>
+        <Link to="/"><img className="logo" src={logo} alt="Logo Breaking News" /></Link>
           <form onSubmit={handleSubmit(onSearch)}>
             <InputSpace>
               <button type="submit">
                 <img src={search} alt="" />
               </button>
-              <input {...register("title")} type="text" placeholder="Pesquise por um título" />
+              <input {...register("title")}
+                type="text" placeholder="Pesquise uma notícia" 
+              />
             </InputSpace>
           </form>
 
-          <Link to="/"><img className="logo" src={logo} alt="Logo Breaking News" /></Link>
+          
           <Button>Entrar</Button>
         </Container>
       </Nav>
-      {errors.title && <span>{errors.title.message}</span>}
+      {errors.title && <ErrorSpan>{errors.title.message}</ErrorSpan>}
       <Outlet />
     </>
   );
