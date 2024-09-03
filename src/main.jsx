@@ -1,6 +1,5 @@
 import { StrictMode } from "react";
 import { createRoot } from "react-dom/client";
-import App from "./App.jsx";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import { Navbar } from "./components/Navbar/Navbar.jsx";
 import { Search } from "./pages/Search/Search.jsx";
@@ -10,8 +9,8 @@ import ErrorPage from "./pages/ErrorPage/ErrorPage.jsx";
 
 const router = createBrowserRouter([
   {
-    path: "/",
-    element: <Navbar />,
+    path: "/", //endereço da rota 
+    element: <Navbar />, //rota mãe
     errorElement : <ErrorPage/>,
     children: [
       {
@@ -19,7 +18,7 @@ const router = createBrowserRouter([
         element: <Home />,
       },
       {
-        path: "/search/",
+        path: "/search/:title",
         element: <Search/>
       },
     ],
