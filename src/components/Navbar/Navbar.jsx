@@ -1,27 +1,49 @@
-import { Outlet } from 'react-router-dom';
-import logo from '../../images/LogoBN.png';
-import search from '../../images/search-icon.svg';
-import { Button, Container, InputSpace, Nav } from './NavbarStyled';
+import { Link, Outlet, useNavigate } from "react-router-dom";
+import logo from "../../images/LogoBN.png";
+import search from "../../images/search-icon.svg";
+import { Button, Container, InputSpace, Nav } from "./NavbarStyled";
+import { useForm } from "react-hook-form";
+import { z } from "zod";
+import { zodResolver } from "@hookform/resolvers/zod";
+
+
+const searchSchema = z.object({
+  title: z.string().nonempty({message: "A pesquisa não pode ser vazia!"}).refine(value => !/^\s*$/.test(value), ({
+    message: "A pesquisa não pode ser vazia!"
+  }))
+});
 
 export function Navbar() {
+  const { register, handleSubmit, reset, formState: { errors } } = useForm({
+    resolver: zodResolver(searchSchema)
+  });
+  const navigate = useNavigate();
+
+  function onSearch(data) {
+    const {title} = data;
+    navigate(`/search/${title}`);
+    reset();
+  }
+
   return (
     <>
       <Nav>
         <Container>
-            <img  className='logo' src={logo} alt="Logo Breaking News" />
+          <form onSubmit={handleSubmit(onSearch)}>
             <InputSpace>
+              <button type="submit">
                 <img src={search} alt="" />
-                <input type="text" 
-                placeholder='Pesquise por um título'
-                />
+              </button>
+              <input {...register("title")} type="text" placeholder="Pesquise por um título" />
             </InputSpace>
-            <Button>Entrar</Button>   
+          </form>
+
+          <Link to="/"><img className="logo" src={logo} alt="Logo Breaking News" /></Link>
+          <Button>Entrar</Button>
         </Container>
-            
       </Nav>
-      <Outlet/>
+      {errors.title && <span>{errors.title.message}</span>}
+      <Outlet />
     </>
   );
 }
-
-

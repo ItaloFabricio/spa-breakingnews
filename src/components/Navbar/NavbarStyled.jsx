@@ -33,16 +33,20 @@ export const InputSpace = styled.div`
   display: flex;
   align-items: center;
 
-  img {
+  button {
     position: absolute;
-    top: 1;
+    top: 6px;
     right: 0.6rem;
     z-index: 10;
     border: none;
-    background-color: #f5f5f5;
     border-radius: 0.3rem;
     width: 20px;
     height: 20px;
+    cursor: pointer;
+  }
+
+  img{
+    background-color: transparent;
   }
 
   input {
