@@ -1,3 +1,4 @@
+import { Outlet } from 'react-router-dom';
 import logo from '../../images/LogoBN.png';
 import search from '../../images/search-icon.svg';
 import { Button, Container, InputSpace, Nav } from './NavbarStyled';
@@ -18,6 +19,7 @@ export function Navbar() {
         </Container>
             
       </Nav>
+      <Outlet/>
     </>
   );
 }

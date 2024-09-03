@@ -5,7 +5,7 @@ export const CardContainer = styled.section`
   flex-direction: column;
 
   max-width: 100%;
-  height: ${(props) => (props.top ? `450px` : "230px")};
+  height: ${(props) => (props.top ? `550px` : "230px")};
 
   background-color: #fff;
   box-shadow: rgba(183, 185, 185, 0.2) 0px 2px 12px;
@@ -28,7 +28,7 @@ export const CardContainer = styled.section`
     left: 0;
     width: 100%;
     height: 100%;
-    background: linear-gradient(to top, rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0));
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.9), rgba(0, 0, 0, 0));
     z-index: 1;
     border-radius: 0.6rem;
 
@@ -87,5 +87,9 @@ export const CardFooter = styled.article`
     display: flex;
     align-items: center;
     gap: 0.3rem;
+  }
+
+  i, span {
+    color: ${(props) => (props.top ? `#fff` : "")};
   }
 `;

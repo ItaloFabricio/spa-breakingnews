@@ -8,18 +8,18 @@ export function Card({ title, text, banner, likes, comments, top }) {
         <div>
           <CardHeader top={top}>
             <h2>{title}</h2>
-            <TextLimit text={text} limit={150} />
+            <TextLimit text={text} limit={120} />
           </CardHeader>
 
-          <CardFooter>
-            <section>
+          <CardFooter top={top}>
+            <section top={top}>
               <i className="bi bi-hand-thumbs-up"></i>
               <span>{likes?.length}</span>
             </section>
 
-            <section>
+            <section top={top}>
               <i className="bi bi-chat"></i>
-              <span>{comments?.length}</span>
+              <span >{comments?.length}</span>
             </section>
           </CardFooter>
         </div>
