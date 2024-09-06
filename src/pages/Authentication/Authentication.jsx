@@ -6,6 +6,7 @@ import { useForm } from "react-hook-form";
 import { signinSchema } from "../../schemas/signinSchema";
 import { signupSchema } from "../../schemas/signupSchema";
 import { ErrorSpan } from "../../components/Navbar/NavbarStyled";
+import { signup } from "../../services/userServices";
 
 export function Authentication() {
   const {
@@ -28,7 +29,13 @@ export function Authentication() {
     console.log(data);
   }
 
-  function upHandleSubmit(data) {
+  async function upHandleSubmit(data) {
+    try {
+      const response = await signup(data);
+      console.log(response);
+    } catch (error) {
+      console.log(error);
+    }
     console.log(data);
   }
 
