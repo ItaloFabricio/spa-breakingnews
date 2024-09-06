@@ -3,15 +3,9 @@ import logo from "../../images/LogoBN.png";
 import search from "../../images/search-icon.svg";
 import { Button, Container, ErrorSpan, InputSpace, Nav } from "./NavbarStyled";
 import { useForm } from "react-hook-form";
-import { z } from "zod";
 import { zodResolver } from "@hookform/resolvers/zod";
+import { searchSchema } from "../../schemas/searchSchema";
 
-
-const searchSchema = z.object({
-  title: z.string().nonempty({message: "A pesquisa não pode ser vazia!"}).refine(value => !/^\s*$/.test(value), ({
-    message: "A pesquisa não pode ser vazia!"
-  }))
-});
 
 export function Navbar() {
   const { register, handleSubmit, reset, formState: { errors } } = useForm({
@@ -44,7 +38,6 @@ export function Navbar() {
               />
             </InputSpace>
           </form>
-
           
           <Button onClick={goAuth}>Entrar</Button>
         </Container>
