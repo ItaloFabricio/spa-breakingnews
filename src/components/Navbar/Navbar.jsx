@@ -25,6 +25,10 @@ export function Navbar() {
     reset();
   }
 
+  function goAuth() {
+    navigate("/auth");
+  }
+
   return (
     <>
       <Nav>
@@ -42,7 +46,7 @@ export function Navbar() {
           </form>
 
           
-          <Button>Entrar</Button>
+          <Button onClick={goAuth}>Entrar</Button>
         </Container>
       </Nav>
       {errors.title && <ErrorSpan>{errors.title.message}</ErrorSpan>}
