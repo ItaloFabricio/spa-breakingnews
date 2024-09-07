@@ -3,6 +3,7 @@ import { Navbar } from "../../components/Navbar/Navbar";
 import { getAllNews, getTopNews } from "../../services/newsServices";
 import { HomeBody, HomeHeader } from "./HomeStyled";
 import { useEffect, useState } from "react";
+import Cookies from 'js-cookie'
 
 export default function Home() {
   const [news, setNews] = useState([]);
@@ -18,6 +19,7 @@ export default function Home() {
 
   useEffect(() => {
     findAllNews();
+    console.log(Cookies.get("token"));
   }, []);
 
 
