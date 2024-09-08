@@ -17,10 +17,12 @@ export const Container = styled.div`
   width: 100%;
   max-width: 1440px;
   margin: 0 auto;
-  display: flex;
+  display: grid;
+	grid-template-columns: 216px 216px 216px;
   justify-content: space-between;
   align-items: center;
   background-color: #fff;
+  text-align: right;
 
   img {
     background-color: #fff;
@@ -89,4 +91,25 @@ export const ErrorSpan = styled.span`
   justify-content: center;
   font-size: 1.1rem;
   font-weight: bold;
+`;
+
+export const UserLoggedSpace = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  align-self: flex-end;
+  justify-self: flex-end;
+  max-width: 100%;
+  gap: 1rem;
+
+  h2{
+    font-size: 1.1rem;
+    color: #8257E6;
+  }
+
+  i {
+    font-size: 1.5rem;
+    color: #2e2e2e;
+    cursor: pointer;
+  }
 `;
