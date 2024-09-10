@@ -67,6 +67,7 @@ export const InputSpace = styled.div`
 `;
 
 export const Button = styled.button`
+  width: 100px;
   background-color: #8257e6;
   border: none;
   outline: none;
@@ -77,6 +78,11 @@ export const Button = styled.button`
   cursor: pointer;
   border-radius: 0.4rem;
   letter-spacing: 1px;
+
+  display: flex;
+  align-self: flex-end;
+  justify-content: center;
+  align-items: center;
 
   &:hover {
     transform: scale(1.02);
@@ -101,6 +107,7 @@ export const UserLoggedSpace = styled.div`
   justify-self: flex-end;
   max-width: 100%;
   gap: 1rem;
+  
 
   h2{
     font-size: 1.1rem;
