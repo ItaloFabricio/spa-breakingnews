@@ -45,7 +45,7 @@ export function Profile() {
         </ProfileUser>
 
         <ProfileActions>
-          <Link to="/manage-news/add/news">
+          <Link to="/manage-news/add">
             <ProfileIconAdd>
               <i className="bi bi-plus-circle"></i>
             </ProfileIconAdd>
