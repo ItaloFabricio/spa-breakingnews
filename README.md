@@ -1,4 +1,5 @@
-#🚨 Atenção: Projeto em fase de desenvolvimento. Ele está incompleto e possui alguns pontos de melhoria que estão sendo trabalhadas.
+## 🚨 Atenção
 
-Trata-se de um projeto de controle de Projetos, onde, por enquanto é 
-possível cadastrar projetos e participantes.
+Este é o Front End do projeto, ele está em fase de desenvolvimento e ainda está incompleto. Alguns pontos de melhoria estão sendo trabalhados.
+
+Trata-se de um portal de notícias, onde, por enquanto, é possível visualizar as notícias cadastradas. A API foi desenvolvida com Node.js e Express, utilizando o banco de dados MongoDB.
