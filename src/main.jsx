@@ -30,9 +30,9 @@ const router = createBrowserRouter([
         element: <Profile/>
       },
       {
-        path: "/manage-news/:action",
+        path: "/manage-news/:action/:id",
         element: <ManageNews/>
-      }
+      },
     ],
   },
   {

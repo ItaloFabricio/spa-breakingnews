@@ -45,7 +45,7 @@ export function Profile() {
         </ProfileUser>
 
         <ProfileActions>
-          <Link to="/manage-news/add">
+          <Link to="/manage-news/add/news">
             <ProfileIconAdd>
               <i className="bi bi-plus-circle"></i>
             </ProfileIconAdd>
@@ -59,11 +59,13 @@ export function Profile() {
           return (
             <Card
               key={news.id}
+              id={news.id}
               title={news.title}
               text={news.text}
               banner={news.banner}
               likes={news.likes}
               comments={news.comments}
+              actions={true}
             />
           )
         })}

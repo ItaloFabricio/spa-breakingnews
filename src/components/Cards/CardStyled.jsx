@@ -46,6 +46,14 @@ export const CardHeader = styled.article`
     margin-bottom: 1rem;
     color: ${(props) => (props.top ? "#fff" : "#8257E6")};
   }
+
+  i{
+    display: flex;
+    justify-content: flex-end;
+    cursor: pointer;
+    color: #8257E6;
+    font-size: 1.1rem;
+  }
 `;
 
 export const CardBody = styled.article`
