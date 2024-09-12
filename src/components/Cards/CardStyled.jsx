@@ -42,8 +42,8 @@ export const CardHeader = styled.article`
   max-width: 100%;
   font-size: ${(props) => (props.top ? "1.5rem" : "1rem")};
   h2 {
-    font-size: ${(props) => (props.top ? "3rem" : "1.4rem")};
-    margin-bottom: 1rem;
+    font-size: ${(props) => (props.top ? "3rem" : "1.2rem")};
+    margin-bottom: .8rem;
     color: ${(props) => (props.top ? "#fff" : "#8257E6")};
   }
 
@@ -54,6 +54,13 @@ export const CardHeader = styled.article`
     color: #8257E6;
     font-size: 1.1rem;
   }
+`;
+
+export const Span = styled.span`
+  display: flex;
+  justify-content: flex-start;
+  gap: 1rem;
+  margin-bottom: .8rem;
 `;
 
 export const CardBody = styled.article`
@@ -81,8 +88,8 @@ export const CardBody = styled.article`
 
   p {
     text-align: left;
-    color: ${(props) => (props.top ? `#fff` : "#181818")};
-    line-height: ${(props) => (props.top ? "40px" : "24px")};
+    color: ${(props) => (props.top ? `#fff` : "#464646")};
+    line-height: ${(props) => (props.top ? "40px" : "20px")};
   }
   
 `;
