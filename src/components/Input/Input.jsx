@@ -8,7 +8,7 @@ export function Input({
   register,
   isInput = true,
   value: initialValue,
-  disabled,
+  disabled = false,
 }) {
   const [value, setValue] = useState(initialValue);
   let inputProps = {
