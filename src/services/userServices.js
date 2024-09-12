@@ -29,8 +29,27 @@ export function userLogged() {
     return response;
   }
 
+export function getUserById(id) {
+  const response = axios.get(`${baseURL}/user/findById/${id}`, {
+    headers: {
+      Authorization: `Bearer ${Cookies.get("token")}`,
+    }
+  });
+  return response;
+}
+
+export function editUser(id, data) {
+  const response = axios.patch(`${baseURL}/user/update/${id}`, data, {
+    headers: {
+      Authorization: `Bearer ${Cookies.get("token")}`,
+    }
+  });
+  return response;
+}
+
 function generateUserName(name) {
     const nameLowerCaseWithoutSpaces = name.replace(/\s/g, "").toLowerCase();
     const randomNumber = Math.floor(Math.random() * 1000);
     return `${nameLowerCaseWithoutSpaces}-${randomNumber}`;
   }
+

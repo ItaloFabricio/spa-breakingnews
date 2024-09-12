@@ -10,6 +10,7 @@ import { Authentication } from "./pages/Authentication/Authentication";
 import { Profile } from "./pages/Profile/Profile.jsx";
 import UserProvider from "./Context/UserContext.jsx";
 import { ManageNews } from "./pages/ManageNews/ManageNews.jsx";
+import { ManageUser } from "./pages/ManageUser/ManageUser.jsx";
 
 const router = createBrowserRouter([
   {
@@ -33,6 +34,10 @@ const router = createBrowserRouter([
         path: "/manage-news/:action/:id",
         element: <ManageNews/>
       },
+      {
+        path: "/manage-user/:action/:id",
+        element: <ManageUser/>
+      }
     ],
   },
   {

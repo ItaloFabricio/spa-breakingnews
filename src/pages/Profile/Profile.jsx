@@ -1,8 +1,8 @@
 import { useContext, useEffect, useState } from "react";
 import { UserContext } from "../../Context/UserContext";
 import {
-    ProfileActions,
-    ProfileAvatar,
+  ProfileActions,
+  ProfileAvatar,
   ProfileBackground,
   ProfileContainer,
   ProfileHeader,
@@ -18,22 +18,26 @@ import { Card } from "../../components/Cards/Card";
 export function Profile() {
   const { user } = useContext(UserContext);
   const [news, setNews] = useState([]);
-
+  
   async function findAllNewsByUser() {
     const response = await getAllNewsByUser();
     setNews(response.data.results);
     console.log(response);
   }
 
+
+
   useEffect(() => {
     findAllNewsByUser();
-  }, [])
+  }, []);
 
   return (
     <ProfileContainer>
       <ProfileHeader>
         <ProfileIconEdit>
-          <i className="bi bi-pencil-square"></i>
+          <Link to={`/manage-user/edit/${user._id}`}>
+            <i className="bi bi-pencil-square">Perfil</i>
+          </Link>
         </ProfileIconEdit>
 
         <ProfileBackground src={user.background} alt="" />
@@ -67,7 +71,7 @@ export function Profile() {
               comments={news.comments}
               actions={true}
             />
-          )
+          );
         })}
       </ProfileNews>
     </ProfileContainer>
