@@ -1,5 +1,5 @@
 import { useForm } from "react-hook-form";
-import { createNews, getNewsById } from "../../services/newsServices";
+import { createNews, editNews, getNewsById } from "../../services/newsServices";
 import { AddNewsContainer } from "./ManageNewsStyled";
 import { useNavigate, useParams } from "react-router-dom";
 import { zodResolver } from "@hookform/resolvers/zod";
@@ -29,7 +29,14 @@ export function ManageNews() {
     }
   }
 
-  async function editNewsSubmit(data) {}
+  async function editNewsSubmit(data) {
+    try {
+      await editNews(data, id);
+      navigate("/profile");
+    } catch (error) {
+      console.log(error);
+  }
+  }
 
   async function findNewsById(id) {
     try {
