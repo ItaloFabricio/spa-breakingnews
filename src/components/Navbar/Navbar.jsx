@@ -6,7 +6,7 @@ import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { searchSchema } from "../../schemas/searchSchema";
 import { userLogged } from "../../services/userServices";
-import { useContext, useEffect } from "react";
+import { useContext, useEffect, useState } from "react";
 import Cookies from "js-cookie";
 import { UserContext } from "../../Context/UserContext";
 
@@ -35,11 +35,12 @@ export function Navbar() {
   async function findUserLogged() {
     try {
       const response = await userLogged();
+      console.log("Resposta do backend:", response);
       setUser(response.data);
-      console.log(response);
+      console.log("Quem está aqui: ", response.user.name);
     } catch (error) {
       console.log(error);
-    }
+    } 
   }
 
   function signout() {
@@ -47,12 +48,13 @@ export function Navbar() {
     setUser(undefined);
     navigate("/");
   }
+  
 
   useEffect(() => {
-    if (Cookies.get("token")) {
-      findUserLogged();
-    }
-  }, []);
+  if (Cookies.get("token")) {
+    findUserLogged();
+  }
+}, []);
 
   return (
     <>

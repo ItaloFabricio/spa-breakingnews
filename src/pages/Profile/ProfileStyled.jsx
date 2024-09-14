@@ -61,6 +61,7 @@ export const ProfileUser = styled.div`
 export const ProfileAvatar = styled.img`
   border-radius: 50%;
   width: 13rem;
+  height: 13rem;
   border: solid 1px #fff;
   background-color: #fff;
   object-fit: cover;

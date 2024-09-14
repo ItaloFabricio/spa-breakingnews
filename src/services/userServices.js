@@ -1,7 +1,7 @@
 import axios from "axios";
 import Cookies from "js-cookie";
 
-const baseURL = "https://api-breakingnews-ejo3.onrender.com";
+const baseURL = "http://localhost:3000";
 
 export function signup(data) {
     delete data.confirmPassword;
@@ -28,15 +28,6 @@ export function userLogged() {
     });
     return response;
   }
-
-export function getUserById(id) {
-  const response = axios.get(`${baseURL}/user/findById/${id}`, {
-    headers: {
-      Authorization: `Bearer ${Cookies.get("token")}`,
-    }
-  });
-  return response;
-}
 
 export function editUser(id, data) {
   const response = axios.patch(`${baseURL}/user/update/${id}`, data, {

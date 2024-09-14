@@ -17,20 +17,19 @@ import { Card } from "../../components/Cards/Card";
 
 export function Profile() {
   const { user } = useContext(UserContext);
+  
   const [news, setNews] = useState([]);
   
   async function findAllNewsByUser() {
     const response = await getAllNewsByUser();
     setNews(response.data.results);
-    console.log(response);
   }
-
-
 
   useEffect(() => {
     findAllNewsByUser();
   }, []);
-
+  
+  console.log(user);
   return (
     <ProfileContainer>
       <ProfileHeader>
