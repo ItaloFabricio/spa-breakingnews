@@ -32,6 +32,7 @@ export function ManageUser() {
       setValue("avatar", data.avatar);
       setValue("name", data.name);
       setValue("username", data.username);
+      setValue("background", data.background);
     } catch (error) {
       console.log(error);
     }
@@ -102,6 +103,17 @@ export function ManageUser() {
         />
         {errorsRegisterUser.username && (
           <ErrorSpan>{errorsRegisterUser.username.message}</ErrorSpan>
+        )}
+
+        <Input
+          type="text"
+          placeholder="Background"
+          name="background"
+          register={registerUser}
+          disabled={action === "delete"}
+        />
+        {errorsRegisterUser.background && (
+          <ErrorSpan>{errorsRegisterUser.background.message}</ErrorSpan>
         )}
 
         <Button

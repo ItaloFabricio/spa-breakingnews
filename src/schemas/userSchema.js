@@ -19,4 +19,10 @@ export const userSchema = z.object({
     .refine((value) => !/^\s*$/.test(value), {
       message: "O texto não pode ter apenas espaços",
     }),
+    background: z
+    .string()
+    .nonempty({ message: "O link do background não pode ser vazio" })
+    .refine((value) => !/^\s*$/.test(value), {
+      message: "O texto não pode ter apenas espaços",
+    }),
 });
