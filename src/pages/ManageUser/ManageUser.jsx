@@ -49,9 +49,9 @@ export function ManageUser() {
 
     try {
       // Chama a função editUser passando o ID e o body
-      const data = await editUser(id, body);
+      const response = await editUser(id, body);
       console.log(data);
-      setUser(data.data);
+      setUser(response.data);
       navigate("/profile"); // Redireciona para o perfil após a atualização
     } catch (error) {
       console.error(
