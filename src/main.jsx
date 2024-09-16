@@ -11,6 +11,7 @@ import { Profile } from "./pages/Profile/Profile.jsx";
 import UserProvider from "./Context/UserContext.jsx";
 import { ManageNews } from "./pages/ManageNews/ManageNews.jsx";
 import { ManageUser } from "./pages/ManageUser/ManageUser.jsx";
+import { NewsPage } from "./pages/NewsPage/NewsPage.jsx";
 
 const router = createBrowserRouter([
   {
@@ -37,6 +38,10 @@ const router = createBrowserRouter([
       {
         path: "/manage-user/:action/:id",
         element: <ManageUser/>
+      },
+      {
+        path: "/news/:id",
+        element: <NewsPage/>
       }
     ],
   },

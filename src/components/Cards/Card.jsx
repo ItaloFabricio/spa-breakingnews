@@ -3,6 +3,8 @@ import { TextLimit } from "../TextLimit/TextLimit";
 import { CardBody, CardContainer, CardFooter, CardHeader, Span } from "./CardStyled";
 
 export function Card({ title, text, banner, likes, comments, top, actions = false, id }) {
+
+
   return (
     <CardContainer top={top} banner={banner}>
       <CardBody top={top}>
@@ -20,8 +22,9 @@ export function Card({ title, text, banner, likes, comments, top, actions = fals
               
             )}
             
-            
-            <TextLimit text={title} limit={60} as="h2" />
+            <Link  to={`/news/${id}`}>
+              <TextLimit text={title} limit={60} as="h2" />           
+            </Link>
             <TextLimit text={text} limit={120} />
           </CardHeader>
 

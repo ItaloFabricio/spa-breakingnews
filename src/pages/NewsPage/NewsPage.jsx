@@ -11,6 +11,7 @@ export function NewsPage() {
     async function findNewsById(newsId) {
         try {
             const { data } = await getNewsById(id);
+            console.log(data.news.title)
             setNews(data.news);
         } catch (error) {
             console.error("Error fetching news:", error);

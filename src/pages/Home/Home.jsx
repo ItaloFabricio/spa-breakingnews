@@ -27,6 +27,7 @@ export default function Home() {
     <>
       <HomeHeader>
         <Card
+          id={topNews.id}
           top={true}
           title={topNews.title}
           text={topNews.text}
@@ -40,6 +41,7 @@ export default function Home() {
           return (
             <Card
               key={item.id}
+              id={item.id}
               title={item.title}
               text={item.text}
               banner={item.banner}
