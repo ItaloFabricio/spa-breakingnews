@@ -50,16 +50,17 @@ export function ManageUser() {
     try {
       // Chama a função editUser passando o ID e o body
       const response = await editUser(id, body);
-      console.log(data);
+      console.log(response.data);
       setUser(response.data);
       navigate("/profile"); // Redireciona para o perfil após a atualização
+      console.log("🚀 ~ editUserSubmit ~ data:", response.data)
     } catch (error) {
       console.error(
         "Erro ao editar o usuário:",
         error.response ? error.response.data : error.message
       );
     }
-      console.log("🚀 ~ editUserSubmit ~ data:", data)
+      
   }
 
   useEffect(() => {
