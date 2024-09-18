@@ -37,6 +37,7 @@ export function Search() {
         {news.map((item) => (   
             <Card
               key={item.id}
+              id={item.id}
               title={item.title}
               text={item.text}
               banner={item.banner}
