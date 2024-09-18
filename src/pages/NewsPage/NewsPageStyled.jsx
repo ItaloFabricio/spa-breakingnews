@@ -2,7 +2,6 @@ import styled from "styled-components";
 
 export const NewsContainer = styled.section`
   width: 100%;
-  max-width: 1440px;
   margin: 1rem auto;
   padding: 4rem 0;
   display: flex;
@@ -21,9 +20,14 @@ export const NewsContainer = styled.section`
 
 export const NewsContent = styled.div`
     width: 40%;
-
+    margin: 0 auto;
+    align-self: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
     img{
-        width: 600px;
+        width: 100%;
+        object-fit: cover;
         height: 400px;
         margin: 1rem 0;
         border-radius: 12px;
