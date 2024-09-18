@@ -36,7 +36,7 @@ export function NewsPage() {
         {news ? ( // Verifica se os dados da notícia estão disponíveis
           <>
             <h1>{news.title}</h1>
-            <p>Autor: {news.userName}</p>
+            <p>Autor: {news.name}</p>
             <img src={news.banner} alt={news.title} />
             <p>{news.text}</p>
             <NewsComment>
