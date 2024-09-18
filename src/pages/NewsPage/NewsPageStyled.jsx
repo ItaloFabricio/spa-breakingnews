@@ -44,3 +44,21 @@ export const Comments = styled.div`
     flex-direction: column;
     gap: 1rem;
 `;
+
+export const NewsAutor = styled.div`
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+
+    img {
+        width: 60px;
+        height: 60px;
+        border-radius: 50%;
+    }
+
+    div{
+        display: flex;
+        flex-direction: column;
+        gap: .4rem;
+    }
+`;

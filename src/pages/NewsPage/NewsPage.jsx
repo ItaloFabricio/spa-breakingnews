@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { getNewsById } from "../../services/newsServices";
-import { Comments, NewsComment, NewsContainer, NewsContent } from "./NewsPageStyled";
+import { Comments, NewsAutor, NewsComment, NewsContainer, NewsContent } from "./NewsPageStyled";
 import { TextLimit } from "../../components/TextLimit/TextLimit";
 
 export function NewsPage() {
@@ -36,7 +36,13 @@ export function NewsPage() {
         {news ? ( // Verifica se os dados da notícia estão disponíveis
           <>
             <h1>{news.title}</h1>
-            <p>Autor: {news.name}</p>
+            <NewsAutor>
+              <img src={news.userAvatar} alt="" />
+              <div>
+                <p>Por {news.name}</p>
+                <p>Publicado em {news.createdAt}</p>
+              </div>
+            </NewsAutor>
             <img src={news.banner} alt={news.title} />
             <p>{news.text}</p>
             <NewsComment>
