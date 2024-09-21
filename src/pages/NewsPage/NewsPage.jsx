@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { getNewsById } from "../../services/newsServices";
 import { Comments, NewsAutor, NewsComment, NewsContainer, NewsContent } from "./NewsPageStyled";
-import { TextLimit } from "../../components/TextLimit/TextLimit";
+import { getUserById } from "../../services/userServices";
 
 export function NewsPage() {
   const { id } = useParams(); // Captura o ID da notícia da URL
@@ -22,10 +22,36 @@ export function NewsPage() {
     }
   }
 
+  async function findUserByIdComment(id) {
+    try {
+      // Buscar a notícia pelo ID
+      const { data } = await getNewsById(id);
+      const { comments } = data.news;
+  
+      // Iterar sobre os comentários e buscar o usuário de cada comentário
+      for (const comment of comments) {
+        const userId = comment.userId; // Extrai o userId do comentário
+  
+        if (userId) {
+          // Busca o usuário pelo userId
+          const userResponse = await getUserById(userId);
+          const userData = userResponse.data;
+  
+          if (userData) {
+            console.log("Usuário:", userData.name); // Exibe o nome do usuário
+          }
+        }
+      }
+    } catch (error) {
+      console.log("Erro ao buscar usuário:", error);
+    }
+  }
+
   // useEffect para chamar a função ao montar o componente
   useEffect(() => {
     if (id) {
       findNewsById(id); // Chama a função apenas se o ID estiver disponível
+      findUserByIdComment(id);
     }
   }, []);
 

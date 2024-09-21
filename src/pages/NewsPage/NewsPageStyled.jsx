@@ -13,7 +13,9 @@ export const NewsContainer = styled.section`
 
   h1 {
     margin-bottom: .8rem;
-    font-size: 2rem;
+    font-size: 2.2rem;
+    font-weight: 900;
+    line-height: 40px;
     color: #1F2123;
   }
 `;
@@ -32,6 +34,7 @@ export const NewsContent = styled.div`
         margin: 1rem 0;
         border-radius: 12px;
     }
+    
 `;
 
 export const NewsComment = styled.div`
