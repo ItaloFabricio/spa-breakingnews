@@ -40,6 +40,7 @@ export const NewsContent = styled.div`
 export const NewsText = styled.div`
     p{
         line-height: 32px;
+        color: #1F2123;
     }
 `;
 
@@ -73,5 +74,27 @@ export const NewsAutor = styled.div`
         display: flex;
         flex-direction: column;
         gap: .4rem;
+
+        .autorName {
+            display: flex;
+            flex-direction: row;
+
+            p {
+                font-weight: bold;
+                color: #1F2123;
+            }
+        }
+
+        .dateCreated {
+            display: flex;
+            flex-direction: row;
+
+            p, span {
+                color: #1F2123;
+                font-size: .9rem;
+            }
+        }
     }
+
 `;
+

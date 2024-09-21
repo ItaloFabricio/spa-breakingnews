@@ -79,8 +79,14 @@ export function NewsPage() {
             <NewsAutor>
               <img src={news.userAvatar} alt="" />
               <div>
-                <p>Por {news.name}</p>
-                <p>Publicado em {new Date(news.createdAt).toLocaleDateString("pt-BR")}</p>
+                <div className="autorName">
+                  <span>Por</span>
+                  <p>{news.name}</p>
+                </div>
+                <div className="dateCreated">
+                  <span>Publicado em</span>
+                  <p>{new Date(news.createdAt).toLocaleDateString("pt-BR")}</p>
+                </div>
               </div>
             </NewsAutor>
             <img src={news.banner} alt={news.title} />
