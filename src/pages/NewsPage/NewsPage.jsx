@@ -8,7 +8,9 @@ export function NewsPage() {
   const { id } = useParams(); // Captura o ID da notícia da URL
 
   const [news, setNews] = useState(null); // Inicializa com null pois será um único objeto
-
+  const [commentsWithUsernames, setCommentsWithUsernames] = useState([]); // Para armazenar comentários com nomes dos usuários
+  
+  
   // Função para buscar a notícia pelo ID
   async function findNewsById(id) {
     try {
@@ -17,6 +19,7 @@ export function NewsPage() {
       setNews(data.news);
       console.log(data);
       console.log('Comentários:', data.news.comments);
+      
     } catch (error) {
       console.error("Error fetching news:", error);
     }
@@ -24,24 +27,35 @@ export function NewsPage() {
 
   async function findUserByIdComment(id) {
     try {
-      // Buscar a notícia pelo ID
       const { data } = await getNewsById(id);
       const { comments } = data.news;
-  
-      // Iterar sobre os comentários e buscar o usuário de cada comentário
+
+      // Variável temporária para armazenar os comentários com os nomes dos usuários
+      const updatedComments = [];
+
       for (const comment of comments) {
-        const userId = comment.userId; // Extrai o userId do comentário
-  
+        const userId = comment.userId;
+
         if (userId) {
-          // Busca o usuário pelo userId
-          const userResponse = await getUserById(userId);
-          const userData = userResponse.data;
-  
-          if (userData) {
-            console.log("Usuário:", userData.name); // Exibe o nome do usuário
+          try {
+            const userResponse = await getUserById(userId);
+            const userData = userResponse.data;
+
+            if (userData) {
+              // Adiciona o comentário com o nome do usuário
+              updatedComments.push({
+                ...comment, // Mantém as informações do comentário original
+                userName: userData.name, // Adiciona o nome do usuário
+              });
+            }
+          } catch (error) {
+            console.log(`Erro ao buscar o usuário ${userId}:`, error);
           }
         }
       }
+
+      // Atualiza o estado com os comentários e nomes dos usuários
+      setCommentsWithUsernames(updatedComments);
     } catch (error) {
       console.log("Erro ao buscar usuário:", error);
     }
@@ -53,7 +67,7 @@ export function NewsPage() {
       findNewsById(id); // Chama a função apenas se o ID estiver disponível
       findUserByIdComment(id);
     }
-  }, []);
+  }, [id]);
 
   // Renderiza a página da notícia
   return (
@@ -77,11 +91,11 @@ export function NewsPage() {
               <div>
                 <h2>Comentários</h2>
                 <Comments>
-                  {Array.isArray(news.comments) && news.comments.length > 0 ? (
-                    news.comments.map((commentObj, index) => (
+                  {Array.isArray(commentsWithUsernames) && commentsWithUsernames.length > 0 ? (
+                    commentsWithUsernames.map((commentObj, index) => (
                       <div key={index}>
-                        <p>{commentObj.comment?.comment || 'Comentário inválido'}</p>
-                        <p>Autor: {commentObj.username || 'Desconhecido'}</p>
+                        <p>{commentObj.comment?.comment || "Comentário inválido"}</p>
+                        <p>Autor: {commentObj.userName || "Desconhecido"}</p> {/* Exibe o nome do usuário */}
                       </div>
                     ))
                   ) : (
