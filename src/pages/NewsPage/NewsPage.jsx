@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { getNewsById } from "../../services/newsServices";
-import { Comments, NewsAutor, NewsComment, NewsContainer, NewsContent } from "./NewsPageStyled";
+import { Comments, NewsAutor, NewsComment, NewsContainer, NewsContent, NewsText } from "./NewsPageStyled";
 import { getUserById } from "../../services/userServices";
 
 export function NewsPage() {
@@ -70,7 +70,9 @@ export function NewsPage() {
               </div>
             </NewsAutor>
             <img src={news.banner} alt={news.title} />
-            <p>{news.text}</p>
+            <NewsText>
+              <p>{news.text}</p>
+            </NewsText>
             <NewsComment>
               <div>
                 <h2>Comentários</h2>
@@ -79,7 +81,7 @@ export function NewsPage() {
                     news.comments.map((commentObj, index) => (
                       <div key={index}>
                         <p>{commentObj.comment?.comment || 'Comentário inválido'}</p>
-                        <p>Autor: {commentObj.userId || 'Desconhecido'}</p>
+                        <p>Autor: {commentObj.username || 'Desconhecido'}</p>
                       </div>
                     ))
                   ) : (

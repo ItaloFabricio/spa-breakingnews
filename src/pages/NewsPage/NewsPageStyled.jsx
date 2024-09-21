@@ -37,6 +37,12 @@ export const NewsContent = styled.div`
     
 `;
 
+export const NewsText = styled.div`
+    p{
+        line-height: 32px;
+    }
+`;
+
 export const NewsComment = styled.div`
     margin: 4rem 0;
 
