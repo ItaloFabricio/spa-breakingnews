@@ -17,6 +17,7 @@ import { Card } from "../../components/Cards/Card";
 
 export function Profile() {
   const { user } = useContext(UserContext);
+  const id = user._id
   
   const [news, setNews] = useState([]);
   
@@ -34,7 +35,7 @@ export function Profile() {
     <ProfileContainer>
       <ProfileHeader>
         <ProfileIconEdit>
-          <Link to={`/manage-user/edit/${user._id}`}>
+          <Link to={`/manage-user/edit/${id}`}>
             <i className="bi bi-pencil-square">Perfil</i>
           </Link>
         </ProfileIconEdit>
