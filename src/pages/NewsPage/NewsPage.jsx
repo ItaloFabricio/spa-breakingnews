@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import { getNewsById } from "../../services/newsServices";
 import { Comments, NewsAutor, NewsComment, NewsContainer, NewsContent, NewsText } from "./NewsPageStyled";
 import { getUserById } from "../../services/userServices";
@@ -81,7 +81,7 @@ export function NewsPage() {
               <div>
                 <div className="autorName">
                   <span>Por</span>
-                  <p>{news.name}</p>
+                  <Link to={`/profile/`}><p>{news.name}</p></Link>
                 </div>
                 <div className="dateCreated">
                   <span>Publicado em</span>
